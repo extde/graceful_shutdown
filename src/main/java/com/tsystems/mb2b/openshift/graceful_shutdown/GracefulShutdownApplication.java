@@ -12,18 +12,4 @@ public class GracefulShutdownApplication {
     public static void main(String[] args) {
         SpringApplication.run(GracefulShutdownApplication.class, args);
     }
-
-    /*
-    @Bean
-    public TomcatGracefulShutdown gracefulShutdown() {
-        return new TomcatGracefulShutdown();
-    }
-
-    @Bean
-    public ConfigurableServletWebServerFactory webServerFactory(final TomcatGracefulShutdown gracefulShutdown) {
-        TomcatServletWebServerFactory factory = new TomcatServletWebServerFactory();
-        factory.addConnectorCustomizers(gracefulShutdown);
-        return factory;
-    }
-    */
 }
