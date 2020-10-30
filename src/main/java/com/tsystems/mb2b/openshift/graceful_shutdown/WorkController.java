@@ -14,9 +14,13 @@ public class WorkController {
     private final AtomicLong counter = new AtomicLong();
 
     @GetMapping("/dowork")
-    public WorkResult doWork() throws InterruptedException {
+    public WorkResult doWork() {
         log.info("dowork enter");
-        Thread.sleep(60_000);
+        try {
+            Thread.sleep(60_000);
+        } catch (InterruptedException e) {
+            log.error("InterruptedException");
+        }
         log.info("dowork exit");
         return new WorkResult(counter.incrementAndGet());
     }
