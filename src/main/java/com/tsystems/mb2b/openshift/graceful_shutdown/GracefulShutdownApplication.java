@@ -13,6 +13,7 @@ public class GracefulShutdownApplication {
         SpringApplication.run(GracefulShutdownApplication.class, args);
     }
 
+    /*
     @Bean
     public TomcatGracefulShutdown gracefulShutdown() {
         return new TomcatGracefulShutdown();
@@ -24,4 +25,5 @@ public class GracefulShutdownApplication {
         factory.addConnectorCustomizers(gracefulShutdown);
         return factory;
     }
+    */
 }
