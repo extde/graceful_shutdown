@@ -13,6 +13,13 @@ public class WorkController {
 
     private final AtomicLong counter = new AtomicLong();
 
+    private final JmsProcessor jmsProcessor;
+
+    public WorkController(JmsProcessor jmsProcessor) {
+        this.jmsProcessor = jmsProcessor;
+    }
+
+
     @GetMapping("/dowork")
     public WorkResult doWork() {
         log.info("dowork enter");
@@ -24,4 +31,13 @@ public class WorkController {
         log.info("dowork exit");
         return new WorkResult(counter.incrementAndGet());
     }
+
+    @GetMapping("/send")
+    public WorkResult doSend() {
+        log.info("send enter");
+        jmsProcessor.sendBinary("test message");
+        log.info("send exit");
+        return new WorkResult(counter.incrementAndGet());
+    }
+
 }
